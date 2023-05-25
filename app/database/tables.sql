@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS usuarios;
+DROP TABLE IF EXISTS pedidos;
 
 CREATE TABLE IF NOT EXISTS pedidos (
     id              INTEGER PRIMARY KEY,
