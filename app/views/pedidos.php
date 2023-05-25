@@ -59,7 +59,8 @@
         <th>Editar</th>
         <th>Nome</th>
         <th>Turma</th>
-        <th>Deletar</th>
+        <th>Tamanho</th>
+        <th>Tipo</th>
     </tr>
 
     <?php foreach($lista as $item): ?>
@@ -70,6 +71,8 @@
             </td>
             <td><?=$item['nome']?></td>
             <td><?=$item['turma']?></td>
+            <td><?=$tamanhos[$item['tamanho']]?></td>
+            <td><?=$tipos[$item['tipo']]?></td>
             <td>
                 <a href='<?=route("pedidos/deletar/{$item['id']}")?>'>Deletar</a>
             </td>
