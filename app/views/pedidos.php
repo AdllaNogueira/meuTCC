@@ -11,8 +11,14 @@
 
 <label class='col-md-2'>
     Turma
-    <input type="text" class="form-control" name="turma" value="<?=_v($data,"turma")?>" >
-</label>
+    <select name="turma_id" class="form-control">
+        <?php
+        foreach($turmas as $turma){
+            _v($data,"turma_id") == $turma['id'] ? $selected='selected' : $selected='';
+            print "<option value='{$turma['id']}' $selected>{$turma['turma']}</option>";
+        }
+        ?>
+    </select></label>
 
 <label class='col-md-2'>
     Telefone
@@ -59,6 +65,7 @@
         <th>Editar</th>
         <th>Nome</th>
         <th>Turma</th>
+        <th>Curso</th>
         <th>Tamanho</th>
         <th>Tipo</th>
     </tr>

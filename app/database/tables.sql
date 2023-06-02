@@ -1,3 +1,13 @@
+DROP TABLE IF EXISTS turmas;
+
+CREATE TABLE IF NOT EXISTS turmas (
+    id              INTEGER PRIMARY KEY,
+    turma           TEXT(15) NOT NULL
+);
+
+insert into turmas (turma) values ("INFO1M"),("INFO2M"),("INFO2V"),("INFO3M"),("INFO3V"),("INFO4M"),("ADM1M"),("ADM1V"),("ADM2V"),("ADM3M"),("ADM4V"),("QUIM1V"),("QUIM2M"),("QUIM3V"),("QUIM4M"),("QUIM4V");
+insert into turmas (turma) values ("TPQ1V"),("TPQ3M"),("TPQ5V"),("TADS1V"),("TADS3V");
+
 DROP TABLE IF EXISTS pedidos;
 
 CREATE TABLE IF NOT EXISTS pedidos (
@@ -6,7 +16,9 @@ CREATE TABLE IF NOT EXISTS pedidos (
     tamanho         TEXT    NOT NULL,
     tipo            TEXT    NOT NULL,
     quantidade      INTEGER NOT NULL,
-    turma           TEXT(15) NOT NULL,
-    telefone        INTEGER NOT NULL
+    turma_id       INTEGER,
+    telefone        INTEGER NOT NULL,
+    FOREIGN KEY (turma_id)
+       REFERENCES turmas (id)
 );
 

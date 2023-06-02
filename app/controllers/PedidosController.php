@@ -1,6 +1,6 @@
 <?php
 use models\Pedidos;
-
+use models\Turmas;
 /**
 * Tutorial CRUD
 * Autor:Alan Klinger 05/06/2017
@@ -37,6 +37,9 @@ class PedidosController {
 
 		
 		$send['tamanhos'] = [0=>"Escolha uma opção", 1=>"PP", 2=>"P", 3=>"M", 4=>"G", 5=>"GG", 6=>"XGG"];
+
+		$turmasModel = new Turmas();
+        $send['turmas'] = $turmasModel->all();
 
 		#chama a view
 		render("pedidos", $send);
