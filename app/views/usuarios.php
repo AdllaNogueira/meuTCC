@@ -11,7 +11,7 @@
 
 <label class='col-md-3'>
     Senha
-    <input type="text" class="form-control" name="senha" value="<?=_v($data,"senha")?>" >
+    <input type="password" class="form-control" name="senha" value="<?=_v($data,"senha")?>" >
 </label>
 
 <label class='col-md-3'>
@@ -28,33 +28,8 @@
 
 
 <button class='btn btn-primary col-12 col-md-3 mt-3'>Salvar</button>
-<a class='btn btn-secondary col-12 col-md-3 mt-3' href="<?=route("usuarios")?>">Novo</a>
+<a class='btn btn-secondary col-12 col-md-3 mt-3' href="<?=route("autenticacao")?>">Login</a>
 
 </form>
-
-<table class='table'>
-
-    <tr>
-        <th>Editar</th>
-        <th>Email</th>
-        <th>Senha</th>
-        <th>Deletar</th>
-    </tr>
-
-    <?php foreach($lista as $item): ?>
-
-        <tr>
-            <td>
-                <a href='<?=route("usuarios/index/{$item['id']}")?>'>Editar</a>
-            </td>
-            <td><?=$item['email']?></td>
-            <td><?=$item['senha']?></td>
-            <td>
-                <a href='<?=route("usuarios/deletar/{$item['id']}")?>'>Deletar</a>
-            </td>
-        </tr>
-
-    <?php endforeach; ?>
-</table>
 
 <?php include 'layout-bottom.php' ?>

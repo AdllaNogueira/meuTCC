@@ -11,6 +11,16 @@ use models\Turmas;
 #e precisa terminar com a palavra Controller
 class PedidosController {
 
+
+	#construtor, é iniciado sempre que a classe é chamada
+	function __construct() {
+    #se nao existir é porque nao está logado
+    if (!isset($_SESSION["user"])){
+        redirect("autenticacao");
+        die();
+    	}
+	}
+
 	/**
 	* Para acessar http://localhost/NOMEDOPROJETO/pedidos/index
 	**/
