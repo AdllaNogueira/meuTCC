@@ -1,3 +1,17 @@
+DROP TABLE IF EXISTS usuarios;
+
+CREATE TABLE IF NOT EXISTS usuarios(
+    id              INTEGER PRIMARY KEY,
+    email           TEXT NOT NULL,
+    senha           TEXT NOT NULL,
+    tipo            INTEGER
+);
+
+/*10 -> Usuario Comum
+  50 -> Admin*/
+
+insert into usuarios (email, senha, tipo) values ("genf.ifrn@gmail.com","1234",50);
+
 DROP TABLE IF EXISTS turmas;
 
 CREATE TABLE IF NOT EXISTS turmas (

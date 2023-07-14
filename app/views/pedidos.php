@@ -65,9 +65,9 @@
         <th>Editar</th>
         <th>Nome</th>
         <th>Turma</th>
-        <th>Curso</th>
         <th>Tamanho</th>
         <th>Tipo</th>
+        <th>Deletar</th>
     </tr>
 
     <?php foreach($lista as $item): ?>

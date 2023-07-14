@@ -28,6 +28,9 @@
         <li class="nav-item">
           <a class="nav-link" href="<?=route('pedidos')?>">Pedidos</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?=route('usuarios')?>">Cadastrar</a>
+        </li>
       </ul>
     </div>
   </div>
