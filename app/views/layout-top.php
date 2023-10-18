@@ -34,6 +34,9 @@ if (isset($_SESSION['user'])):
           <a class="nav-link" href="<?=route('pedidos')?>">Pedidos</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="<?=route('pedidosadmin')?>">Admin</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="<?=route('autenticacao/logout')?>">Logout</a>
         </li>
       </ul>

@@ -12,14 +12,14 @@ class Usuarios extends Model {
         $sql = "SELECT * FROM {$this->table} "
                 ." WHERE email = :email and senha = :senha";
         $stmt = $this->pdo->prepare($sql);
-        $data = [':email' => $email, ":senha"=>hash("sha256", $senha)];
+        $data = [':email' => $email, ":senha"=>$senha];
         $stmt->execute($data);
         if ($stmt == false){
             $this->showError($sql,$data);
         }
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
-
+    
     #sobrescreve a funcao salve da classe mae Model
     public function save($data){
         if (_v($data,"senha") != ""){

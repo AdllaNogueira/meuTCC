@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS usuarios(
 /*10 -> Usuario Comum
   50 -> Admin*/
 
-insert into usuarios (email, senha, tipo) values ("genf.ifrn@gmail.com","1234",50);
+insert into usuarios (email, senha, tipo) values ("genf.ifrn@gmail.com","123456",50);
+insert into usuarios (email, senha, tipo) values ("usuario@gmail.com","123456",10);
 
 DROP TABLE IF EXISTS turmas;
 
