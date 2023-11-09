@@ -2,11 +2,12 @@
 
 
 
-<form method='POST' action='<?=route('pedidos/salvar/'._v($data,"id"))?>'>
+<form method='POST' action='<?=route('pedidosAdmin/salvar/'._v($data,"id"))?>'>
 
 <label class='col-md-6'>
     Nome
-    <input type="text" class="form-control" name="nome" value="<?=_v($data,"nome")?>" >
+    <input type="text" class="form-control <?=hasError("nome","is-invalid")?>" name="nome" value="<?=old("nome", _v($data,"nome"))?>" >
+    <div class='invalid-feedback'><?=getValidationError("nome") ?></div>
 </label>
 
 <label class='col-md-2'>
@@ -22,12 +23,14 @@
 
 <label class='col-md-2'>
     Telefone
-    <input type="text" class="form-control tel" name="telefone" value="<?=_v($data,"telefone")?>" >
+    <input type="text" class="form-control tel <?=hasError("telefone","is-invalid")?>" name="telefone" value="<?=old("telefone", _v($data,"telefone"))?>" >
+    <div class='invalid-feedback'><?=getValidationError("telefone") ?></div>
 </label>
 
 <label class='col-md-2'>
     Quantidade
-    <input type="text" class="form-control" name="quantidade" value="<?=_v($data,"quantidade")?>" >
+    <input type="text" class="form-control <?=hasError("quantidade","is-invalid")?>" name="quantidade" value="<?=old("quantidade", _v($data,"quantidade"))?>" >
+    <div class='invalid-feedback'><?=getValidationError("quantidade") ?></div>
 </label>
 
 <label class='col-md-6'>
@@ -55,7 +58,7 @@
 </label>
 
 <button class='btn btn-primary col-12 col-md-3 mt-3'>Salvar</button>
-<a class='btn btn-secondary col-12 col-md-3 mt-3' href="<?=route("pedidos")?>">Novo</a>
+<a class='btn btn-secondary col-12 col-md-3 mt-3' href="<?=route("pedidosAmin")?>">Novo</a>
 
 </form>
 
@@ -74,14 +77,14 @@
 
         <tr>
             <td>
-                <a href='<?=route("pedidosadmin/index/{$item['id']}")?>'>Editar</a>
+                <a href='<?=route("pedidosAdmin/index/{$item['id']}")?>'>Editar</a>
             </td>
             <td><?=$item['nome']?></td>
             <td><?=$item['turma']?></td>
             <td><?=$tamanhos[$item['tamanho']]?></td>
             <td><?=$tipos[$item['tipo']]?></td>
             <td>
-                <a href='<?=route("pedidosadmin/deletar/{$item['id']}")?>'>Deletar</a>
+                <a href='<?=route("pedidosAdmin/index/{$item['id']}")?>'>Deletar</a>
             </td>
         </tr>
 

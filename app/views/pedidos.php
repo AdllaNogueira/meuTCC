@@ -6,7 +6,8 @@
 
 <label class='col-md-6'>
     Nome
-    <input type="text" class="form-control" name="nome" value="<?=_v($data,"nome")?>" >
+    <input type="text" class="form-control <?=hasError("nome","is-invalid")?>" name="nome" value="<?=old("nome", _v($data,"nome"))?>" >
+    <div class='invalid-feedback'><?=getValidationError("nome") ?></div>
 </label>
 
 <label class='col-md-2'>
@@ -22,12 +23,14 @@
 
 <label class='col-md-2'>
     Telefone
-    <input type="text" class="form-control tel" name="telefone" value="<?=_v($data,"telefone")?>" >
+    <input type="text" class="form-control tel <?=hasError("telefone","is-invalid")?>" name="telefone" value="<?=old("telefone", _v($data,"telefone"))?>" >
+    <div class='invalid-feedback'><?=getValidationError("telefone") ?></div>
 </label>
 
 <label class='col-md-2'>
     Quantidade
-    <input type="text" class="form-control" name="quantidade" value="<?=_v($data,"quantidade")?>" >
+    <input type="text" class="form-control <?=hasError("quantidade","is-invalid")?>" name="quantidade" value="<?=old("quantidade", _v($data,"quantidade"))?>" >
+    <div class='invalid-feedback'><?=getValidationError("quantidade") ?></div>
 </label>
 
 <label class='col-md-6'>
@@ -62,7 +65,6 @@
 <table class='table'>
 
     <tr>
-        <th>Editar</th>
         <th>Nome</th>
         <th>Turma</th>
         <th>Tamanho</th>
@@ -72,9 +74,6 @@
     <?php foreach($lista as $item): ?>
 
         <tr>
-            <td>
-                <a href='<?=route("pedidos/index/{$item['id']}")?>'>Editar</a>
-            </td>
             <td><?=$item['nome']?></td>
             <td><?=$item['turma']?></td>
             <td><?=$tamanhos[$item['tamanho']]?></td>

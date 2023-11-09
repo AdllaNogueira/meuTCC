@@ -19,10 +19,17 @@ class PedidosAdminController {
         redirect("autenticacao");
         die();
     	}
+	#proibe o usuário de entrar caso não tenha autorização
+	if ($_SESSION['user']['tipo'] < 25){
+    	header("HTTP/1.1 401 Unauthorized");
+    	die();
+}
+
 	}
 
+
 	/**
-	* Para acessar http://localhost/NOMEDOPROJETO/pedidos/index
+	* Para acessar http://localhost/NOMEDOPROJETO/pedidosAdmin/index
 	**/
 	function index($id = null){
 
@@ -52,21 +59,39 @@ class PedidosAdminController {
         $send['turmas'] = $turmasModel->all();
 
 		#chama a view
-		render("pedidos", $send);
+		render("pedidosAdmin", $send);
 	}
 
 	
 	function salvar($id=null){
 
 		$model = new Pedidos();
+
+		#validacao
+		$requeridos = ["nome"=>"Nome é obrigatório","telefone"=>"Telefone é obrigatório","quantidade"=>"Quantidade é obrigatório"];
+		foreach($requeridos as $field=>$msg){
+			#verifica se o campo está vazio
+			if (!validateRequired($_POST,$field)){
+				setValidationError($field, $msg);
+			}
+		}
+	
+		#se alguma validação tiver falhado
+		if (count($_SESSION['errors'])){
+			setFlash("error","Falha ao salvar usuário.");
+			#volta para a página que estava
+			header('Location: ' . $_SERVER['HTTP_REFERER']);
+			die();
+		}
 		
 		if ($id == null){
 			$id = $model->save($_POST);
 		} else {
 			$id = $model->update($id, $_POST);
 		}
+		setFlash("success","Salvo com sucesso.");
 		
-		redirect("pedidosadmin/index/$id");
+		redirect("pedidosAdmin/index/$id");
 	}
 
 	function deletar(int $id){
@@ -74,7 +99,7 @@ class PedidosAdminController {
 		$model = new Pedidos();
 		$model->delete($id);
 
-		redirect("pedidosadmin/index/");
+		redirect("pedidosAdmin/index/");
 	}
 
 

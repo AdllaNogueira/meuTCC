@@ -44,5 +44,4 @@ class Usuarios extends Model {
         }
         return parent::update($id, $data);
     }
-
 }
