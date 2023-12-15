@@ -57,7 +57,7 @@
     </select>
 </label>
 
-<button class='btn btn-primary col-12 col-md-3 mt-3'>Salvar</button>
+<button style="background-color: #9ADB91; border: #9ADB91" class='btn btn-primary col-12 col-md-3 mt-3'>Salvar</button>
 <a class='btn btn-secondary col-12 col-md-3 mt-3' href="<?=route("pedidosAmin")?>">Novo</a>
 
 </form>
