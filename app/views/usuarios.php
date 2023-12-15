@@ -6,7 +6,7 @@
 
 <label class='col-md-3'>
     Email
-    <input type="text" class="form-control" name="email" value="<?=_v($data,"email")?>" >
+    <input type="email" class="form-control" name="email" value="<?=_v($data,"email")?>" >
 </label>
 
 <label class='col-md-3'>
@@ -14,7 +14,7 @@
     <input type="password" class="form-control" name="senha" value="<?=_v($data,"senha")?>" >
 </label>
 
-<label class='col-md-3'>
+<!--<label class='col-md-3'>
     Usuario
     <select name="tipo" class="form-control">
         <?php
@@ -24,7 +24,7 @@
         }
         ?>
     </select>
-</label>
+</label> -->
 
 
 <button style="background-color: #9ADB91; border: #9ADB91" class='btn btn-primary col-12 col-md-3 mt-3'>Salvar</button>
